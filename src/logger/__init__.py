@@ -48,7 +48,7 @@ def get_logger(name:str):
     # -------------------------------
     console_handler = logging.StreamHandler()
     console_formatter = logging.Formatter(
-        "%(levelname)s - %(message)s"
+         "LINE - %(lineno)d : [ %(asctime)s ] %(name)s - %(levelname)s - %(message)s"
     )
     console_handler.setFormatter(console_formatter)
     console_handler.setLevel(logging.INFO)  # Only INFO+ on console

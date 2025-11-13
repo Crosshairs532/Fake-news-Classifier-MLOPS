@@ -1,4 +1,4 @@
 """
     Configuration 
 """
-MONGODB_DATABASE_NAME=''
+MONGODB_DATABASE_NAME='fake_news'
