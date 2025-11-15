@@ -1,0 +1,226 @@
+LINE - 60 : [ 2025-11-15 00:09:20,773 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 00:09:20,773 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 00:09:20,774 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 00:09:21,536 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 00:09:21,536 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 00:09:24,037 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 00:09:24,038 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 00:09:24,038 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 00:09:24,476 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 00:09:24,476 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 00:09:24,480 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 00:09:24,480 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 00:09:24,915 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 00:09:24,915 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 26 : [ 2025-11-15 00:09:24,915 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 60 : [ 2025-11-15 00:10:08,471 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 00:10:08,471 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 00:10:08,471 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 00:10:09,177 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 00:10:09,179 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 00:10:11,289 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 00:10:11,289 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 00:10:11,289 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 00:10:11,732 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 00:10:11,732 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 00:10:11,735 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 00:10:11,735 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 00:10:12,204 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 00:10:12,205 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 26 : [ 2025-11-15 00:10:12,205 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 60 : [ 2025-11-15 00:11:21,406 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 00:11:21,406 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 00:11:21,406 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 00:11:22,053 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 00:11:22,053 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 00:11:24,318 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 00:11:24,319 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 00:11:24,319 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 00:11:24,744 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 00:11:24,744 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 00:11:24,746 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 00:11:24,746 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 00:11:25,171 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 00:11:25,171 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 26 : [ 2025-11-15 00:11:25,171 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 60 : [ 2025-11-15 00:12:23,241 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 00:12:23,241 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 00:12:23,241 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 00:12:24,007 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 00:12:24,007 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 00:12:26,757 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 00:12:26,757 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 00:12:26,758 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 00:12:27,190 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 00:12:27,191 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 00:12:27,194 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 00:12:27,194 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 00:12:27,617 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 00:12:27,617 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 26 : [ 2025-11-15 00:12:27,617 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 32 : [ 2025-11-15 00:12:31,214 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 72 : [ 2025-11-15 00:12:31,215 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 73 : [ 2025-11-15 00:12:31,215 ] ConfigLoader - INFO - corpus: 4575
+LINE - 13 : [ 2025-11-15 00:12:31,515 ] ConfigLoader - INFO - Saving Object
+LINE - 71 : [ 2025-11-15 00:12:31,581 ] Model training - INFO - Model Training Started
+LINE - 72 : [ 2025-11-15 00:12:31,581 ] Model training - INFO - loading feature config..
+LINE - 38 : [ 2025-11-15 00:12:31,582 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 45 : [ 2025-11-15 00:12:31,690 ] Model training - INFO - Model training started
+LINE - 13 : [ 2025-11-15 00:12:31,691 ] Exception - ERROR - Error occurred in python script name [/Users/user/Documents/MLOPS/MLOPS-Fake-News_classifier/src/components/model_trainer.py] line number [46] error message [Data cardinality is ambiguous. Make sure all arrays contain the same number of samples.'x' sizes: 3202
+'y' sizes: 1373
+]
+LINE - 60 : [ 2025-11-15 00:13:39,206 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 00:13:39,206 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 00:13:39,206 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 00:13:39,976 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 00:13:39,976 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 00:13:42,351 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 00:13:42,352 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 00:13:42,352 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 00:13:42,780 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 00:13:42,781 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 00:13:42,783 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 00:13:42,783 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 00:13:43,278 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 00:13:43,279 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 25 : [ 2025-11-15 00:13:43,279 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 31 : [ 2025-11-15 00:13:46,969 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 72 : [ 2025-11-15 00:13:46,970 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 73 : [ 2025-11-15 00:13:46,970 ] ConfigLoader - INFO - corpus: 5078
+LINE - 13 : [ 2025-11-15 00:13:47,198 ] ConfigLoader - INFO - Saving Object
+LINE - 71 : [ 2025-11-15 00:13:47,246 ] Model training - INFO - Model Training Started
+LINE - 72 : [ 2025-11-15 00:13:47,246 ] Model training - INFO - loading feature config..
+LINE - 38 : [ 2025-11-15 00:13:47,246 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 45 : [ 2025-11-15 00:13:47,356 ] Model training - INFO - Model training started
+LINE - 13 : [ 2025-11-15 00:13:47,356 ] Exception - ERROR - Error occurred in python script name [/Users/user/Documents/MLOPS/MLOPS-Fake-News_classifier/src/components/model_trainer.py] line number [46] error message [Data cardinality is ambiguous. Make sure all arrays contain the same number of samples.'x' sizes: 3554
+'y' sizes: 1524
+]
+LINE - 60 : [ 2025-11-15 12:31:57,447 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 12:31:57,447 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 12:31:57,447 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 12:31:58,548 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 12:31:58,548 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 12:32:00,860 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 12:32:00,861 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 12:32:00,861 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 12:32:01,366 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 12:32:01,366 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 12:32:01,370 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 12:32:01,370 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 12:32:01,989 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 12:32:01,998 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 25 : [ 2025-11-15 12:32:01,999 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 31 : [ 2025-11-15 12:32:05,490 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 71 : [ 2025-11-15 12:32:05,491 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 72 : [ 2025-11-15 12:32:05,491 ] ConfigLoader - INFO - corpus: 4575
+LINE - 13 : [ 2025-11-15 12:32:05,714 ] ConfigLoader - INFO - Saving Object
+LINE - 30 : [ 2025-11-15 12:32:05,756 ] Demo - INFO - Padded: <class 'numpy.ndarray'> new_df:(4575, 7)
+LINE - 60 : [ 2025-11-15 12:32:46,909 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 12:32:46,910 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 12:32:46,910 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 12:32:47,819 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 12:32:47,819 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 12:32:50,396 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 12:32:50,396 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 12:32:50,396 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 12:32:50,843 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 12:32:50,843 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 12:32:50,846 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 12:32:50,846 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 12:32:51,278 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 12:32:51,278 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 25 : [ 2025-11-15 12:32:51,278 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 31 : [ 2025-11-15 12:32:54,546 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 71 : [ 2025-11-15 12:32:54,546 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 72 : [ 2025-11-15 12:32:54,546 ] ConfigLoader - INFO - corpus: 4575
+LINE - 13 : [ 2025-11-15 12:32:54,755 ] ConfigLoader - INFO - Saving Object
+LINE - 30 : [ 2025-11-15 12:32:54,798 ] Demo - INFO - Padded: (<class 'numpy.ndarray'>, 4575) new_df:(4575, 7)
+LINE - 60 : [ 2025-11-15 12:34:25,564 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 12:34:25,564 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 12:34:25,564 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 12:34:26,230 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 12:34:26,230 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 12:34:28,429 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 12:34:28,429 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 12:34:28,429 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 12:34:28,875 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 12:34:28,875 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 12:34:28,878 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 12:34:28,878 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 12:34:29,309 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 12:34:29,309 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 25 : [ 2025-11-15 12:34:29,309 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 31 : [ 2025-11-15 12:34:32,515 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 71 : [ 2025-11-15 12:34:32,515 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 72 : [ 2025-11-15 12:34:32,515 ] ConfigLoader - INFO - corpus: 4575
+LINE - 13 : [ 2025-11-15 12:34:32,721 ] ConfigLoader - INFO - Saving Object
+LINE - 71 : [ 2025-11-15 12:34:32,763 ] Model training - INFO - Model Training Started
+LINE - 72 : [ 2025-11-15 12:34:32,763 ] Model training - INFO - loading feature config..
+LINE - 74 : [ 2025-11-15 12:34:32,763 ] Model training - INFO - Padded: (<class 'numpy.ndarray'>, 4575) new_df:(4575, 7)
+LINE - 60 : [ 2025-11-15 12:36:05,411 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 12:36:05,411 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 12:36:05,411 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 12:36:06,120 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 12:36:06,120 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 12:36:08,845 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 12:36:08,845 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 12:36:08,846 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 12:36:09,498 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 12:36:09,498 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 12:36:09,502 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 12:36:09,502 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 12:36:10,022 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 12:36:10,023 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 25 : [ 2025-11-15 12:36:10,023 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 31 : [ 2025-11-15 12:36:13,260 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 71 : [ 2025-11-15 12:36:13,261 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 72 : [ 2025-11-15 12:36:13,261 ] ConfigLoader - INFO - corpus: 4575
+LINE - 13 : [ 2025-11-15 12:36:13,471 ] ConfigLoader - INFO - Saving Object
+LINE - 72 : [ 2025-11-15 12:36:13,514 ] Model training - INFO - Model Training Started
+LINE - 73 : [ 2025-11-15 12:36:13,514 ] Model training - INFO - loading feature config..
+LINE - 38 : [ 2025-11-15 12:36:13,514 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 39 : [ 2025-11-15 12:36:13,514 ] Model training - INFO - Padded: (<class 'numpy.ndarray'>, 4575) new_df:(4575,)
+LINE - 60 : [ 2025-11-15 12:37:51,841 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 12:37:51,841 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 12:37:51,841 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 12:37:52,765 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 12:37:52,765 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 12:37:55,614 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 12:37:55,615 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 12:37:55,615 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 12:37:56,061 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 12:37:56,061 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 12:37:56,065 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 12:37:56,066 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 12:37:56,506 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 12:37:56,507 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 25 : [ 2025-11-15 12:37:56,507 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 31 : [ 2025-11-15 12:38:00,898 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 71 : [ 2025-11-15 12:38:00,899 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 72 : [ 2025-11-15 12:38:00,899 ] ConfigLoader - INFO - corpus: 4575
+LINE - 13 : [ 2025-11-15 12:38:01,544 ] ConfigLoader - INFO - Saving Object
+LINE - 72 : [ 2025-11-15 12:38:01,697 ] Model training - INFO - Model Training Started
+LINE - 73 : [ 2025-11-15 12:38:01,697 ] Model training - INFO - loading feature config..
+LINE - 38 : [ 2025-11-15 12:38:01,697 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 39 : [ 2025-11-15 12:38:01,698 ] Model training - INFO - Padded: (<class 'numpy.ndarray'>, 4575) new_df:(4575,)
+LINE - 46 : [ 2025-11-15 12:38:01,925 ] Model training - INFO - Model training started

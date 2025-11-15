@@ -62,6 +62,8 @@ class DataIngestion:
         self.split_train_test(dataframe)
         logger.info("Exiting Data Ingestion")
 
+        return dataframe
+
         
 
 
