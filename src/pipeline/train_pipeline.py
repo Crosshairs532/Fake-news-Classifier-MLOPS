@@ -46,7 +46,7 @@ class TrainPipeline:
 
 
             # Model Training
-            model_trainer = ModelTrainer(feature_engineering_artifact)
+            model_trainer = ModelTrainer(data_feature_engineering_artifact)
             model_trainer.initiate_model_trainer(train_arr, test_arr)
 
             # Model Registration

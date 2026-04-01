@@ -22,7 +22,7 @@ class DataTransformationArtifact:
 class DataFeatureEngineerArtifact:
     preprocessor_file_path: str
     feature_config_file_path: str
-    padded_sequence: Any
+
 
 
 @dataclass

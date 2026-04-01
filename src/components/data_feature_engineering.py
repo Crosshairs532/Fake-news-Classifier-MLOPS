@@ -19,20 +19,21 @@ class DataFeatureEngineering:
         self.train_df = pd.read_csv(data_preprocessing_artifact.train_corpus_file_path)
         self.test_df = pd.read_csv(data_preprocessing_artifact.test_corpus_file_path)
         self.data_featureEngineering_config = data_featureEngineering_config
+        self.data_preprocessing_artifact = data_preprocessing_artifact
 
-        os.makedirs(self.data_featureEngineering_config.preprocessor_file_path, exist_ok=True)
+        os.makedirs(
+            os.path.dirname(self.data_featureEngineering_config.preprocessor_file_path), 
+            exist_ok=True
+        )
 
 
     def fit(self, corpus):
-        all_words = []
-
         self.tokenizer.fit_on_texts(corpus)
-        for  sentence in corpus:
-            words =  nltk.tokenize.word_tokenize(sentence) 
-            all_words.extend(words)
-        self.token_size = len(set(all_words))
+        
+        # Keras Tokenizer starts indices at 1 and 0 is reserved for padding, so input_dim needs to be len(word_index) + 1
+        self.token_size = len(self.tokenizer.word_index) + 1
 
-        os.makedirs(self.data_featureEngineering_config.preprocessor_file_path, exist_ok=True)
+        os.makedirs(os.path.dirname(self.data_featureEngineering_config.preprocessor_file_path), exist_ok=True)
         save_object(self.tokenizer, file=self.data_featureEngineering_config.preprocessor_file_path)
 
         config = {
@@ -87,12 +88,12 @@ class DataFeatureEngineering:
 
 
 
-            save_numpy_array_data(file_path=os.path.join(self.data_preprocessing_artifact.train_corpus_file_path, "train.npz"), array=train_arr)
-            save_numpy_array_data(file_path=os.path.join(self.data_preprocessing_artifact.test_corpus_file_path, "test.npz"), array=test_arr)
+            save_numpy_array_data(file_path=os.path.join(os.path.dirname(self.data_preprocessing_artifact.train_corpus_file_path), "train.npz"), array=train_arr)
+            save_numpy_array_data(file_path=os.path.join(os.path.dirname(self.data_preprocessing_artifact.test_corpus_file_path), "test.npz"), array=test_arr)
 
             preprocess_artifact = DataFeatureEngineerArtifact(
                 preprocessor_file_path = self.data_featureEngineering_config.preprocessor_file_path,
-                feature_config_file_path = self.data_featureEngineering_config.feature_config_file_path
+                feature_config_file_path = self.data_featureEngineering_config.feature_config_file_path,
             )
             return train_arr, test_arr, preprocess_artifact
         except Exception as e: 

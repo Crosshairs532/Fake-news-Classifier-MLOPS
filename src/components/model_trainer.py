@@ -48,7 +48,8 @@ class ModelTrainer:
             model = self.create_model()
 
             logger.info('Model training started')
-            model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), batch_size=32)
+            # model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), batch_size=32)
+            model.fit(x_train, y_train, epochs=5, batch_size=16)
             
             y_pred = (model.predict(x_test) > 0.5).astype('int8')
             
@@ -75,25 +76,26 @@ class ModelTrainer:
             logger.error('Error occurred while saving the model info: %s', e)
             raise
 
-    def initiate_model_trainer(self, x):
+    def initiate_model_trainer(self, train_arr, test_arr):
         
 
         logger.info("Model Training Stasrted")
         logger.info('loading feature config..')
 
-        mlflow.set_experiment('Fake-News-Classifier')
+        mlflow.set_experiment('Fake-News-Classifier-MLOPS')
 
         with mlflow.start_run() as run: 
 
             feature_config = load_config('artifacts/preprocessor/feature_config.json')
             self.token_size = feature_config['vocab_size']
+            self.max_len = feature_config['max_len']
 
             #log params
             mlflow.log_param('Vocab_size', self.token_size)
             mlflow.log_param('max_len', feature_config['max_len'])
 
 
-            model = self.model_object(x, self.df['label'])
+            model = self.model_object(train_arr, test_arr)
             model_dir = os.path.join("artifacts", "models")
             os.makedirs(model_dir, exist_ok=True)
             save_path = os.path.join(model_dir, 'model.pkl')

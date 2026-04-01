@@ -21,8 +21,8 @@ class MongoDBClient:
 
     def __init__(self, database_name:Optional[str] = MONGODB_DATABASE_NAME ):
         logger.info("Connecting to Mongodb...")
-        test_collection_name = "test-collection"  # Change to your main collection
-        submit_collection_name = "submit-collection"  # Change to your main collection
+        test_collection_name = "test-collection"  
+        submit_collection_name = "submit-collection" 
         try: 
             if  MongoDBClient.client is None: 
                 if not mongodb_username or not mongodb_password:
