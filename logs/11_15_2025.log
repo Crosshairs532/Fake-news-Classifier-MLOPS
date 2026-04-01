@@ -224,3 +224,29 @@ LINE - 73 : [ 2025-11-15 12:38:01,697 ] Model training - INFO - loading feature 
 LINE - 38 : [ 2025-11-15 12:38:01,697 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
 LINE - 39 : [ 2025-11-15 12:38:01,698 ] Model training - INFO - Padded: (<class 'numpy.ndarray'>, 4575) new_df:(4575,)
 LINE - 46 : [ 2025-11-15 12:38:01,925 ] Model training - INFO - Model training started
+LINE - 60 : [ 2025-11-15 16:32:56,139 ] Data Ingestion - INFO - Data Ingestion started...
+LINE - 17 : [ 2025-11-15 16:32:56,140 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2025-11-15 16:32:56,140 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2025-11-15 16:32:57,211 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2025-11-15 16:32:57,212 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 38 : [ 2025-11-15 16:32:59,334 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 24 : [ 2025-11-15 16:32:59,335 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 27 : [ 2025-11-15 16:32:59,335 ] Data Ingestion - INFO - Saving Whole data to feature store
+LINE - 29 : [ 2025-11-15 16:32:59,769 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 38 : [ 2025-11-15 16:32:59,769 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 40 : [ 2025-11-15 16:32:59,773 ] Data Ingestion - INFO - Data splitting Done
+LINE - 42 : [ 2025-11-15 16:32:59,773 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2025-11-15 16:33:00,213 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 63 : [ 2025-11-15 16:33:00,213 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 25 : [ 2025-11-15 16:33:00,213 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 30 : [ 2025-11-15 16:33:03,518 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 71 : [ 2025-11-15 16:33:03,519 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 72 : [ 2025-11-15 16:33:03,519 ] ConfigLoader - INFO - corpus: 4575
+LINE - 13 : [ 2025-11-15 16:33:03,731 ] ConfigLoader - INFO - Saving Object
+LINE - 93 : [ 2025-11-15 16:33:03,773 ] Model training - INFO - Model Training Stasrted
+LINE - 94 : [ 2025-11-15 16:33:03,773 ] Model training - INFO - loading feature config..
+LINE - 38 : [ 2025-11-15 16:33:06,881 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 48 : [ 2025-11-15 16:33:07,582 ] Model training - INFO - Padded: (<class 'numpy.ndarray'>, 4575) new_df:(4575,)
+LINE - 55 : [ 2025-11-15 16:33:07,701 ] Model training - INFO - Model training started

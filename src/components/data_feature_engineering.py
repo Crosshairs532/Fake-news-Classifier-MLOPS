@@ -1,49 +1,50 @@
 from tensorflow.keras.preprocessing.text import Tokenizer
 from src.entity.artifact_entity import DataFeatureEngineerArtifact
+from src.utils.main_utils import * 
+import numpy as np
+import pandas as pd
 import tensorflow
 import nltk
-import os
-from src.utils.main_utils import * 
 import json
+import os
+
+
+
 
 class DataFeatureEngineering: 
-    def __init__(self, maxlen = 8):
-        self.tokenizer = None
+    def __init__(self, data_featureEngineering_config, data_preprocessing_artifact = None):
+        self.tokenizer = Tokenizer()
         self.token_size = None
-        self.max_len = maxlen
+        self.max_len = 8
+        self.train_df = pd.read_csv(data_preprocessing_artifact.train_corpus_file_path)
+        self.test_df = pd.read_csv(data_preprocessing_artifact.test_corpus_file_path)
+        self.data_featureEngineering_config = data_featureEngineering_config
 
-        os.makedirs('artifacts/preprocessor', exist_ok=True)
+        os.makedirs(self.data_featureEngineering_config.preprocessor_file_path, exist_ok=True)
 
 
     def fit(self, corpus):
         all_words = []
-        self.tokenizer = Tokenizer()
+
         self.tokenizer.fit_on_texts(corpus)
         for  sentence in corpus:
             words =  nltk.tokenize.word_tokenize(sentence) 
             all_words.extend(words)
         self.token_size = len(set(all_words))
 
-        preprocessor_dir = os.path.join("artifacts", "preprocessor")
-        os.makedirs(preprocessor_dir, exist_ok=True)
-        save_object(self.tokenizer, file=os.path.join(preprocessor_dir, 'preprocessor.pkl'))
+        os.makedirs(self.data_featureEngineering_config.preprocessor_file_path, exist_ok=True)
+        save_object(self.tokenizer, file=self.data_featureEngineering_config.preprocessor_file_path)
 
         config = {
             "vocab_size": self.token_size,
             "max_len": self.max_len
         }
 
-        with open(os.path.join('artifacts/preprocessor', "feature_config.json"), "w") as f:
+        with open(self.data_featureEngineering_config.feature_config_file_path, "w") as f:
             json.dump(config, f, indent=4)
 
 
-        preprocess_artifact = DataFeatureEngineerArtifact(
-            preprocessor_file_path = os.path.join('artifacts/preprocessor', 'preprocessor.pkl'),
-            feature_config_file_path = os.path.join('artifacts/preprocessor', "feature_config.json")
-        )
-        return preprocess_artifact
-        
-        
+        return self.token_size, self.data_featureEngineering_config.feature_config_file_path
         
     def transform(self, corpus):
 
@@ -60,24 +61,40 @@ class DataFeatureEngineering:
 
         return padded
 
-    def fit_transform(self, corpus):
-        feature_engineering_artifact = self.fit(corpus)
-
-        return self.transform(corpus), feature_engineering_artifact
     
-    def initialize_feature_engineering(self, corpus):
-
-        
+    def initialize_feature_engineering(self):
         logger.info("Feature Engineering Started.")
-        logger.info(f"corpus: {len(corpus)}")
+        try:
 
-        try: 
-            padded, feature_engineering_artifact = self.fit_transform(corpus)
+            train_df = pd.read_csv(self.data_preprocessing_artifact.train_corpus_file_path)
+            test_df = pd.read_csv(self.data_preprocessing_artifact.test_corpus_file_path)
 
-            return padded, feature_engineering_artifact
+            train_corpus = train_df['corpus'].astype(str).tolist()
+            vocab_size, config_path = self.fit(train_corpus)
+            test_corpus = test_df['corpus'].astype(str).tolist()
+
+            X_train_arr = self.transform(train_corpus)
+            X_test_arr = self.transform(test_corpus)
+
+            # label
+            y_train = train_df['label'].values
+            y_test = test_df['label'].values
+
+            train_arr = np.c_[X_train_arr, y_train]
+            test_arr = np.c_[X_test_arr, y_test]
+
+
+
+
+
+            save_numpy_array_data(file_path=os.path.join(self.data_preprocessing_artifact.train_corpus_file_path, "train.npz"), array=train_arr)
+            save_numpy_array_data(file_path=os.path.join(self.data_preprocessing_artifact.test_corpus_file_path, "test.npz"), array=test_arr)
+
+            preprocess_artifact = DataFeatureEngineerArtifact(
+                preprocessor_file_path = self.data_featureEngineering_config.preprocessor_file_path,
+                feature_config_file_path = self.data_featureEngineering_config.feature_config_file_path
+            )
+            return train_arr, test_arr, preprocess_artifact
         except Exception as e: 
             raise CustomException(e, sys)
-
-
-
 

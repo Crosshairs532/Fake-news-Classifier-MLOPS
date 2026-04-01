@@ -27,7 +27,7 @@ class MongoDBClient:
             if  MongoDBClient.client is None: 
                 if not mongodb_username or not mongodb_password:
                     raise CustomException("Mongodb username/password not found!", sys)  
-                mongodb_uri = "mongodb+srv://admin:KdqbhZulPlXQNa1O@ml-clusters.qazmdxn.mongodb.net/fake_news?retryWrites=true&w=majority&appName=Ml-clusters"
+                mongodb_uri = os.getenv('MONGODB_URI')
 
                 MongoDBClient.client = MongoClient(mongodb_uri)
 

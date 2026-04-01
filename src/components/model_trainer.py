@@ -22,54 +22,42 @@ dagshub.init(repo_owner='Crosshairs532', repo_name='Fake-news-Classifier-MLOPS',
 logger = get_logger('Model training')
 
 class ModelTrainer: 
-    def __init__(self, feature_engineering_artifact, df):
+    def __init__(self, feature_engineering_artifact):
         self.feature_engineering_artifact = feature_engineering_artifact
         self.token_size = None
-        self.df = df
-        self.scores = None 
-    
-        
+        self.max_len = None
+        self.scores = {}
 
     def create_model(self):
-
-        input = Input(shape=(8,))
-        Embeddding = Embedding(input_dim=self.token_size, output_dim=10)
-        lstm = LSTM(50)
-        model  = Sequential()
-        model.add(input)
-        model.add(Embeddding)
-        model.add(lstm)
-        output = model.add(Dense(1, activation='sigmoid'))
+        model = Sequential([
+            Input(shape=(self.max_len,)),
+            Embedding(input_dim=self.token_size, output_dim=10),
+            LSTM(10),
+            Dense(1, activation='sigmoid')
+        ])
         model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-
         return model
 
-    def model_object(self, x, y):
-        logger.info(f"Padded: {type(x), len(x) } new_df:{y.shape}")
-
+    def model_object(self, train_arr, test_arr):
         try:
-            x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
+            x_train, y_train = train_arr[:, :-1], train_arr[:, -1]
+            x_test, y_test = test_arr[:, :-1], test_arr[:, -1]
+
+            logger.info(f"Train shape: {x_train.shape}, Test shape: {x_test.shape}")
 
             model = self.create_model()
 
             logger.info('Model training started')
-            model.fit(x_train, y_train, epochs=10, validation_data=(x_test, y_test), batch_size=32)
-            logger.info("Model Training Finished")
-
-
-            y_pred = (model.predict(x_test) > 0.5).astype(dtype='int8')
-            accuracy = accuracy_score(y_test, y_pred) 
-            f1 = f1_score(y_test, y_pred)
-            recall_score = recall_score(y_test, y_pred)
-            precision_score =  precision_score(y_test, y_pred)
-
+            model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), batch_size=32)
+            
+            y_pred = (model.predict(x_test) > 0.5).astype('int8')
+            
             self.scores = {
-                "accuracy": accuracy,
-                "f1": f1,
-                "recall_score":recall_score,
-                "precision_score":precision_score
+                "accuracy": accuracy_score(y_test, y_pred),
+                "f1": f1_score(y_test, y_pred),
+                "precision": precision_score(y_test, y_pred),
+                "recall": recall_score(y_test, y_pred)
             }
-
             return model
 
         except Exception as e: 
@@ -111,7 +99,6 @@ class ModelTrainer:
             save_path = os.path.join(model_dir, 'model.pkl')
             save_object(model, save_path)
 
-
             mlflow.log_artifact(save_path)
             mlflow.log_artifact("artifacts/preprocessor/preprocessor.pkl")
             mlflow.log_artifact("artifacts/preprocessor/feature_config.json")
@@ -126,8 +113,6 @@ class ModelTrainer:
 
 
             self.save_model_info(run.info.run_id, "artifacts/models", 'reports/experiment_info.json')
-
-
 
             logger.info('Model Saved')
         

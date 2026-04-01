@@ -26,9 +26,15 @@ class FakeNewsData:
             
 
             logger.info("Fetching Data from mongoDb...")
+
+            """
+                Two Feature Collection
+                    - test-collection
+                    - submit-collection
+            """
             test = pd.DataFrame(test_collection.find())
             submit = pd.DataFrame(submit_collection.find())
-
+            
             X = test.copy()
             y = submit.copy()
 

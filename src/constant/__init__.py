@@ -14,3 +14,5 @@ MONGODB_DATABASE_NAME='fake_news'
 
 feature_store = "feature_store"
 feature_store_file_name = 'data.csv'
+
+preprocessor = 'preprocessor'

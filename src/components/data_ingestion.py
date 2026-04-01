@@ -2,6 +2,8 @@ from src.logger import get_logger
 from src.exception import CustomException
 from src.data_access.FakeNewsData import FakeNewsData
 from src.entity.config_entity import DataIngestionConfig
+# CHANGED: Added DataIngestionArtifact import
+from src.entity.artifact_entity import DataIngestionArtifact
 from sklearn.model_selection import train_test_split
 import sys
 import os
@@ -24,7 +26,7 @@ class DataIngestion:
             logger.info(f"Shape of data : {df.shape}")
 
             os.makedirs(self.data_ingestion.data_ingestion_dir, exist_ok=True)
-            logger.info(f"Saving Whole data to feature store") 
+            logger.info(f"Saving Raw data to feature store") 
             df.to_csv(self.data_ingestion.feature_store_file_path, index=False, header=True)
             logger.info(f"Data Saved to feature_store: {self.data_ingestion.feature_store_file_path}")
             return df
@@ -44,25 +46,30 @@ class DataIngestion:
             os.makedirs(self.data_ingestion.train_data_dir, exist_ok=True)
             os.makedirs(self.data_ingestion.test_data_dir, exist_ok=True)
 
-
             train.to_csv(self.data_ingestion.train_file_path, index=True, header=True)
             test.to_csv(self.data_ingestion.test_file_path, index=True, header=True)
 
 
             logger.info(f"Train and test data saved: \nTrain path: {self.data_ingestion.train_file_path}\n Test path: {self.data_ingestion.test_file_path}")
-
-            
+    
         except Exception as e: 
             logger.error("Failed to Split Data")
             raise CustomException("Failed to Split Data", sys)
 
-    def initialize_data_ingestion(self):
-        logger.info("Data Ingestion started...")
+    def initialize_data_ingestion(self) -> DataIngestionArtifact:
+        logger.info("Data Ingestion started")
         dataframe = self.export_to_feature_store()
         self.split_train_test(dataframe)
         logger.info("Exiting Data Ingestion")
 
-        return dataframe
+
+        dataIngestionArtifact = DataIngestionArtifact(
+            trained_file_path = self.data_ingestion.train_file_path,
+            test_file_path = self.data_ingestion.test_file_path
+        )
+
+        return dataIngestionArtifact
+
 
         
 
