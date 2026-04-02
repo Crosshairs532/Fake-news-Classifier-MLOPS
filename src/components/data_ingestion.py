@@ -29,7 +29,7 @@ class DataIngestion:
             logger.info(f"Saving Raw data to feature store") 
             df.to_csv(self.data_ingestion.feature_store_file_path, index=False, header=True)
             logger.info(f"Data Saved to feature_store: {self.data_ingestion.feature_store_file_path}")
-            return df
+            return df.head(100)
 
         except Exception as e: 
             raise CustomException("Failed to load data!!")
@@ -69,6 +69,10 @@ class DataIngestion:
         )
 
         return dataIngestionArtifact
+
+if __name__ == "__main__":
+    obj = DataIngestion()
+    obj.initialize_data_ingestion()
 
 
         

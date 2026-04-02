@@ -88,8 +88,8 @@ class DataFeatureEngineering:
 
 
 
-            save_numpy_array_data(file_path=os.path.join(os.path.dirname(self.data_preprocessing_artifact.train_corpus_file_path), "train.npz"), array=train_arr)
-            save_numpy_array_data(file_path=os.path.join(os.path.dirname(self.data_preprocessing_artifact.test_corpus_file_path), "test.npz"), array=test_arr)
+            save_numpy_array_data(file_path=self.data_featureEngineering_config.train_arr_file_path, array=train_arr)
+            save_numpy_array_data(file_path=self.data_featureEngineering_config.test_arr_file_path, array=test_arr)
 
             preprocess_artifact = DataFeatureEngineerArtifact(
                 preprocessor_file_path = self.data_featureEngineering_config.preprocessor_file_path,
@@ -99,3 +99,28 @@ class DataFeatureEngineering:
         except Exception as e: 
             raise CustomException(e, sys)
 
+if __name__ == "__main__":
+    from src.entity.config_entity import DataCorpusConfig, DataFeatureEngineeringConfig
+    from src.entity.artifact_entity import DataPreProcessingArtifact
+    
+    corpus_config = DataCorpusConfig()
+    preprocessing_artifact = DataPreProcessingArtifact(
+        train_corpus_file_path=corpus_config.train_corpus_file_path,
+        test_corpus_file_path=corpus_config.test_corpus_file_path
+    )
+    feature_config = DataFeatureEngineeringConfig()
+    obj = DataFeatureEngineering(data_featureEngineering_config=feature_config, data_preprocessing_artifact=preprocessing_artifact)
+    obj.initialize_feature_engineering()
+
+if __name__ == "__main__":
+    from src.entity.config_entity import DataCorpusConfig, DataFeatureEngineeringConfig
+    from src.entity.artifact_entity import DataPreProcessingArtifact
+    
+    corpus_config = DataCorpusConfig()
+    preprocessing_artifact = DataPreProcessingArtifact(
+        train_corpus_file_path=corpus_config.train_corpus_file_path,
+        test_corpus_file_path=corpus_config.test_corpus_file_path
+    )
+    feature_config = DataFeatureEngineeringConfig()
+    obj = DataFeatureEngineering(data_featureEngineering_config=feature_config, data_preprocessing_artifact=preprocessing_artifact)
+    obj.initialize_feature_engineering()

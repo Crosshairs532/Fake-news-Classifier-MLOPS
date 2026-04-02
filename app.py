@@ -9,7 +9,6 @@ logger = get_logger("App")
 
 app = FastAPI(title="Fake News Classifier API", description="API to classify news as real or fake and trigger retraining")
 
-# Pydantic model for receiving text prediction queries
 class NewsRequest(BaseModel):
     text: str
 

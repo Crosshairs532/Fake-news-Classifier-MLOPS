@@ -55,6 +55,14 @@ class DataPreProcessing:
 
         return dataPreProcessingArtifact
 
+if __name__ == "__main__":
+    from src.entity.config_entity import DataIngestionConfig
+    from src.entity.artifact_entity import DataIngestionArtifact
+    config = DataIngestionConfig()
+    artifact = DataIngestionArtifact(trained_file_path=config.train_file_path, test_file_path=config.test_file_path)
+    obj = DataPreProcessing(artifact)
+    obj.initiate_data_preprocessing()
+
 
 
 

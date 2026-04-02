@@ -23,3 +23,9 @@ def register_model(model_name: str, model_info: dict):
     except Exception as e:
         logger.error('Error during model registration: %s', e)
         raise
+
+if __name__ == "__main__":
+    import json
+    with open('reports/experiment_info.json', 'r') as file:
+        model_info = json.load(file)
+    register_model(model_name="FakeNewsClassifier", model_info=model_info)

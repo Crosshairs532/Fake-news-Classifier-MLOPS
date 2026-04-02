@@ -1,0 +1,48 @@
+stages:
+  data_ingestion:
+    cmd: python -m src.components.data_ingestion
+    deps:
+      - src/components/data_ingestion.py
+    outs:
+      - artifacts/feature_store
+      - artifacts/train
+      - artifacts/test
+
+  data_preprocessing:
+    cmd: python -m src.components.data_preprocessing
+    deps:
+      - artifacts/train
+      - artifacts/test
+      - src/components/data_preprocessing.py
+    outs:
+      - artifacts/data_corpus
+
+  feature_engineering:
+    cmd: python -m src.components.data_feature_engineering
+    deps:
+      - artifacts/data_corpus
+      - src/components/data_feature_engineering.py
+    outs:
+      - artifacts/preprocessor/preprocessor.pkl
+      - artifacts/preprocessor/feature_config.json
+      - artifacts/preprocessor/train.npz
+      - artifacts/preprocessor/test.npz
+
+  model_building:
+    cmd: python -m src.components.model_trainer
+    deps:
+      - artifacts/preprocessor/preprocessor.pkl
+      - artifacts/preprocessor/feature_config.json
+      - artifacts/preprocessor/train.npz
+      - artifacts/preprocessor/test.npz
+      - src/components/model_trainer.py
+    outs:
+      - artifacts/models
+    metrics:
+      - reports/experiment_info.json
+
+  model_registration:
+    cmd: python -m src.components.register_model
+    deps:
+      - reports/experiment_info.json
+      - src/components/register_model.py
