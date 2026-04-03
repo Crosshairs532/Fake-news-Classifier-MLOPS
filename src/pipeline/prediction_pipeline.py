@@ -48,7 +48,6 @@ class PredictionPipeline:
     def predict(self, text: str):
         try:
             logger.info("Starting prediction process")
-
             # Preprocess the raw text
             processed_text = self.preprocess_text(text)
 
