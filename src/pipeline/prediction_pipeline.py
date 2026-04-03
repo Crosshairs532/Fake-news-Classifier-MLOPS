@@ -49,13 +49,13 @@ class PredictionPipeline:
         try:
             logger.info("Starting prediction process")
 
-            # 1. Preprocess the raw text
+            # Preprocess the raw text
             processed_text = self.preprocess_text(text)
 
-            # 2. Load the Preprocessor (Tokenizer)
+            # Load the Preprocessor (Tokenizer)
             tokenizer = self.load_object(self.preprocessor_path)
 
-            # 3. Load configuration
+            # Load configuration
             config = load_config(self.config_path)
             max_len = config['max_len']
 
@@ -70,12 +70,16 @@ class PredictionPipeline:
                 value=0.0
             )
 
-            # 5. Load the trained Model
-            model = self.load_object(self.model_path)
+            # Load the trained Model
+            model_data = self.load_object(self.model_path)
+            model = tf.keras.models.model_from_json(model_data["architecture"])
+            model.set_weights(model_data["weights"])
+            model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-            # 6. Predict the output
+            # predict
             prediction = model.predict(padded)
-            # Binary classification (0 = Real, 1 = Fake) generally depends on training labels
+
+
             is_fake = (prediction[0][0] > 0.5).astype(dtype='int8')
             
             logger.info("Prediction successful")

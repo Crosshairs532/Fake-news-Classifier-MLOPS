@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>News Classifier</h1>
+
+        <form action="/predict-web" method="post">
+            <textarea name="text" placeholder="Paste news text here..." required></textarea>
+            <button type="submit">Analyze News</button>
+        </form>
+
+        {% if prediction %}
+        <div id="result" class="{{ 'fake' if prediction == 'Fake News' else 'real' }}">
+            Result: {{ prediction }}
+        </div>
+        {% endif %}
+
+        <div style="margin-top: 20px;">
+            <a href="/metrics">View Metrics</a>
+        </div>
+    </div>
+</body>
+
+</html>

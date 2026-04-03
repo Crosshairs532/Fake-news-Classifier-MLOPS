@@ -1,33 +1,74 @@
-import warnings
-warnings.filterwarnings("ignore")
-from src.data_access.FakeNewsData import FakeNewsData
+import time
+from fastapi import FastAPI, HTTPException, Request, Response, Form
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel
+import uvicorn
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
+
+from src.pipeline.train_pipeline import TrainPipeline
+from src.pipeline.prediction_pipeline import PredictionPipeline
 from src.logger import get_logger
-from sklearn.metrics import accuracy_score, f1_score
-from nltk.stem.porter import PorterStemmer
-from keras.preprocessing.sequence import pad_sequences
 
-from mlflow import log_metric, log_param, log_params, log_artifacts
-import mlflow
-import dagshub
-from src.components.data_ingestion import DataIngestion
-from src.components.data_preprocessing import DataPreProcessing
-from src.components.data_feature_engineering import DataFeatureEngineering
-from src.components.model_trainer import ModelTrainer
+logger = get_logger("App")
 
-logger = get_logger("Demo")
+app = FastAPI(title="Fake News Classifier")
 
-if __name__ =="__main__":
-    data_ingestion = DataIngestion()
-    data_preprocessing = DataPreProcessing()
-    data_feature_engineering = DataFeatureEngineering(maxlen=8)
+# Important: Mounting files
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 
-    df = data_ingestion.initialize_data_ingestion()
-    corpus, new_df = data_preprocessing.initiate_data_preprocessing(df)
-    padded, feature_engineering_artifact  = data_feature_engineering.initialize_feature_engineering(corpus)
+# Metrics
+REQUEST_COUNT = Counter("http_requests_total", "Total Requests", ["method", "endpoint", "http_status"])
+REQUEST_LATENCY = Histogram("http_request_duration_seconds", "Latency", ["method", "endpoint"])
+PREDICTION_RESULTS = Counter("news_classification_total", "Results", ["type"])
 
-    model_trainer = ModelTrainer(feature_engineering_artifact, new_df)
+class NewsRequest(BaseModel):
+    text: str
 
-    model_trainer.initiate_model_trainer(padded)
-    
+@app.middleware("http")
+async def monitor_requests(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    REQUEST_COUNT.labels(method=request.method, endpoint=request.url.path, http_status=response.status_code).inc()
+    REQUEST_LATENCY.labels(method=request.method, endpoint=request.url.path).observe(process_time)
+    return response
 
+# 1. HOME PAGE (GET)
+@app.get("/")
+def home(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
+# 2. METRICS (GET)
+@app.get("/metrics")
+def metrics():
+    return Response(content=generate_latest(), media_type=CONTENT_TYPE_LATEST)
+
+# 3. WEB PREDICTION (POST from Form)
+@app.post("/predict-web")
+def predict_web(request: Request, text: str = Form(...)):
+    pipeline = PredictionPipeline()
+    prediction = pipeline.predict(text)
+    result = "Fake News" if prediction == 1 else "Real News"
+    PREDICTION_RESULTS.labels(type="fake" if prediction == 1 else "real").inc()
+    return templates.TemplateResponse("index.html", {"request": request, "prediction": result, "text": text})
+
+# 4. API PREDICTION (POST from JSON/Postman)
+@app.post("/predict")
+def predict_api(request: NewsRequest):
+    pipeline = PredictionPipeline()
+    prediction = pipeline.predict(request.text)
+    result = "Fake News" if prediction == 1 else "Real News"
+    return {"prediction": result}
+
+@app.post("/train")
+def train_route():
+    try:
+        TrainPipeline().run_pipeline()
+        return {"message": "Success"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

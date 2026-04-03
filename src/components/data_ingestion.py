@@ -2,7 +2,6 @@ from src.logger import get_logger
 from src.exception import CustomException
 from src.data_access.FakeNewsData import FakeNewsData
 from src.entity.config_entity import DataIngestionConfig
-# CHANGED: Added DataIngestionArtifact import
 from src.entity.artifact_entity import DataIngestionArtifact
 from sklearn.model_selection import train_test_split
 import sys

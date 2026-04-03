@@ -215,3 +215,28 @@ LINE - 258 : [ 2026-04-03 04:28:58,837 ] Model training - INFO - Model Training 
 LINE - 259 : [ 2026-04-03 04:28:58,837 ] Model training - INFO - loading feature config..
 LINE - 29 : [ 2026-04-03 04:29:00,398 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
 LINE - 229 : [ 2026-04-03 04:29:01,247 ] Model training - INFO - Model training started
+LINE - 36 : [ 2026-04-03 23:32:59,552 ] TrainPipeline - INFO - Training pipeline execution started
+LINE - 59 : [ 2026-04-03 23:32:59,553 ] Data Ingestion - INFO - Data Ingestion started
+LINE - 18 : [ 2026-04-03 23:32:59,554 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2026-04-03 23:32:59,554 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2026-04-03 23:33:00,649 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 28 : [ 2026-04-03 23:33:00,650 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 44 : [ 2026-04-03 23:33:03,860 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 25 : [ 2026-04-03 23:33:03,860 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 28 : [ 2026-04-03 23:33:03,860 ] Data Ingestion - INFO - Saving Raw data to feature store
+LINE - 30 : [ 2026-04-03 23:33:04,612 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 39 : [ 2026-04-03 23:33:04,612 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 41 : [ 2026-04-03 23:33:04,617 ] Data Ingestion - INFO - Data splitting Done
+LINE - 43 : [ 2026-04-03 23:33:04,617 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2026-04-03 23:33:04,629 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 62 : [ 2026-04-03 23:33:04,629 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 35 : [ 2026-04-03 23:33:04,634 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 54 : [ 2026-04-03 23:33:04,730 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 57 : [ 2026-04-03 23:33:04,732 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 42 : [ 2026-04-03 23:33:04,734 ] ConfigLoader - INFO - Feature config saved — vocab_size=5000, max_len=20
+LINE - 259 : [ 2026-04-03 23:33:04,738 ] Model training - INFO - Model Training Started
+LINE - 260 : [ 2026-04-03 23:33:04,738 ] Model training - INFO - loading feature config..
+LINE - 29 : [ 2026-04-03 23:33:07,607 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 229 : [ 2026-04-03 23:33:08,508 ] Model training - INFO - Model training started

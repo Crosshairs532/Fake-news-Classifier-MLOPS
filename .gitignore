@@ -2,3 +2,4 @@ Notebooks
 .dockerignore
 .env
 demo.py
+__pycache__
