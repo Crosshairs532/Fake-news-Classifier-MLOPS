@@ -1,0 +1,39 @@
+name: CI For End to End Fake News Classifier MLOPS Pipelines
+
+on:
+  push
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: setup python env
+        uses: actions/setup-python@v4
+        with: 
+          python-version: "3.13"
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Install dependencies
+        run: | 
+          pip install -r requirements.txt
+
+      - name: run pipeline
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          MONGODB_NAME: ${{ secrets.MONGODB_NAME }}
+          MONGODB_COLLECTION: ${{ secrets.MONGODB_COLLECTION }}
+          MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+          MLFLOW_TRACKING_TOKEN: ${{ secrets.MLFLOW_TRACKING_TOKEN }}
+          DAGSHUB_USER: ${{ secrets.DAGSHUB_USER }}
+          DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
+          CAPSTONE_TEST: ${{ secrets.capstone_fake_news }}
+        run: |
+          dvc repro

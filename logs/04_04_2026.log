@@ -40,3 +40,16 @@ LINE - 50 : [ 2026-04-04 01:16:37,924 ] PredictionPipeline - INFO - Starting pre
 LINE - 23 : [ 2026-04-04 01:16:37,924 ] PredictionPipeline - INFO - Preprocessing input text
 LINE - 29 : [ 2026-04-04 01:16:37,938 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
 LINE - 85 : [ 2026-04-04 01:16:38,225 ] PredictionPipeline - INFO - Prediction successful
+LINE - 36 : [ 2026-04-04 02:35:54,107 ] ModelEvaluation - INFO - Model Evaluation Started.
+LINE - 29 : [ 2026-04-04 02:35:56,826 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 13 : [ 2026-04-04 02:35:56,829 ] Exception - ERROR - Error occurred in python script name [/Users/user/Documents/Data-Science/MLOPS/MLOPS-Fake-News_classifier/src/components/model_evaluation.py] line number [49] error message [name 'processed_text' is not defined]
+LINE - 36 : [ 2026-04-04 02:37:00,896 ] ModelEvaluation - INFO - Model Evaluation Started.
+LINE - 29 : [ 2026-04-04 02:37:02,679 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 13 : [ 2026-04-04 02:37:02,682 ] Exception - ERROR - Error occurred in python script name [/Users/user/Documents/Data-Science/MLOPS/MLOPS-Fake-News_classifier/src/components/model_evaluation.py] line number [52] error message [name 'tf' is not defined]
+LINE - 37 : [ 2026-04-04 02:38:18,700 ] ModelEvaluation - INFO - Model Evaluation Started.
+LINE - 29 : [ 2026-04-04 02:38:20,513 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 71 : [ 2026-04-04 02:38:28,682 ] ModelEvaluation - INFO - model Evaludation Completed
+ Accuracy: 0.3448275862068966
+ Precision: 0.25
+ Recall: 0.13333333333333333
+ F1 Score: 0.17391304347826086
