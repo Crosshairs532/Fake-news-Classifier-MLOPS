@@ -12,7 +12,7 @@ from src.utils.main_utils import load_config
 
 import mlflow
 import os 
-from python_dotenv import load_dotenv
+from dotenv import load_dotenv
 from mlflow.tracking import MlflowClient
 
 logger = get_logger("PredictionPipeline")
