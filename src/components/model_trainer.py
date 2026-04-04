@@ -14,7 +14,7 @@ import mlflow
 import mlflow.keras
 import dagshub
 import json
-from python_dotenv import load_dotenv 
+from dotenv import load_dotenv
 
 load_dotenv()
 
