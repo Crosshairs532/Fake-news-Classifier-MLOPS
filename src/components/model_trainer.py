@@ -15,6 +15,7 @@ import mlflow.keras
 import dagshub
 import json
  
+token = os.getenv("CAPSTONE_TEST") 
 # Disable GPU for tensorflow to prevent LSTM hanging on Mac
 tf_gpus = tf.config.list_physical_devices('GPU')
 if tf_gpus:
