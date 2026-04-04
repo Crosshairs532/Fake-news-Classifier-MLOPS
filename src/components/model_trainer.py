@@ -14,12 +14,20 @@ import mlflow
 import mlflow.keras
 import dagshub
 import json
- 
-dagshub_token = os.getenv("CAPSTONE_TEST") 
+from python_dotenv import load_dotenv 
+
+load_dotenv()
+
+dagshub_token = os.getenv("CAPSTONE_TEST")
 if not dagshub_token:
     raise EnvironmentError("CAPSTONE_TEST environment variable is not set")
-os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+
+os.environ["MLFLOW_TRACKING_USERNAME"] = "Crosshairs532"
 os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+
+mlflow.set_tracking_uri(
+  os.getenv("MLFLOW_TRACKING_URI")
+)
 # Disable GPU for tensorflow to prevent LSTM hanging on Mac
 tf_gpus = tf.config.list_physical_devices('GPU')
 if tf_gpus:
@@ -30,9 +38,8 @@ if tf_gpus:
     except RuntimeError as e:
         logger.error(e)
  
-ml_flow_tracking_url = "https://dagshub.com/Crosshairs532/Fake-news-Classifier-MLOPS.mlflow/"
-mlflow.set_tracking_uri(ml_flow_tracking_url)
-dagshub.init(repo_owner='Crosshairs532', repo_name='Fake-news-Classifier-MLOPS', mlflow=True)
+
+# dagshub.init(repo_owner='Crosshairs532', repo_name='Fake-news-Classifier-MLOPS', mlflow=True)
  
 logger = get_logger('Model training')
  
