@@ -37,8 +37,9 @@ stages:
       - src/components/model_trainer.py
     outs:
       - artifacts/models
+      # - artifacts/reports/experiment_info.json
     metrics:
-      - reports/experiment_info.json
+      - artifacts/reports/experiment_info.json
 
   model_registration:
     cmd: python -m src.components.register_model

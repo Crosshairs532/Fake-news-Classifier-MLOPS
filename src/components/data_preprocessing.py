@@ -1,4 +1,5 @@
 from src.logger import get_logger
+import nltk
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 import re
@@ -7,6 +8,10 @@ from src.entity.config_entity import DataCorpusConfig
 import pandas as pd 
 import numpy as np
 import os
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
 
 logger = get_logger("Data preprocessing")
 

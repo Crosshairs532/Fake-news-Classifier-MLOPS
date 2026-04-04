@@ -28,6 +28,10 @@ jobs:
 
             - name: Set up DVC
               uses: iterative/setup-dvc@v1
+            - name: Pre-download NLTK resources
+              run: |
+                python -m pip install nltk
+                python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt')"
 
             - name: run pipeline
               env:  
