@@ -25,9 +25,8 @@ if not dagshub_token:
 os.environ["MLFLOW_TRACKING_USERNAME"] = "Crosshairs532"
 os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
-mlflow.set_tracking_uri(
-  os.getenv("MLFLOW_TRACKING_URI")
-)
+auth_uri = f"https://Crosshairs532:{dagshub_token}@dagshub.com/Crosshairs532/Fake-news-Classifier-MLOPS.mlflow"
+mlflow.set_tracking_uri(auth_uri)
 # Disable GPU for tensorflow to prevent LSTM hanging on Mac
 tf_gpus = tf.config.list_physical_devices('GPU')
 if tf_gpus:
