@@ -25,7 +25,6 @@ jobs:
               run: | 
                     pip install -r requirements.txt
 
-
             - name: Set up DVC
               uses: iterative/setup-dvc@v1
             - name: Pre-download NLTK resources

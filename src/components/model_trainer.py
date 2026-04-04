@@ -18,6 +18,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+
 dagshub_token = os.getenv("CAPSTONE_TEST")
 if not dagshub_token:
     raise EnvironmentError("CAPSTONE_TEST environment variable is not set")
@@ -25,7 +27,7 @@ if not dagshub_token:
 os.environ["MLFLOW_TRACKING_USERNAME"] = "Crosshairs532"
 os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
-auth_uri = f"https://Crosshairs532:{dagshub_token}@dagshub.com/Crosshairs532/Fake-news-Classifier-MLOPS.mlflow"
+auth_uri = f"https://Crosshairs532:{dagshub_token}@dagshub.com/Crosshairs532/Fake-news-Classifier-MLOPS.mlflow" if dagshub_token else "https://dagshub.com/Crosshairs532/Fake-news-Classifier-MLOPS.mlflow"
 mlflow.set_tracking_uri(auth_uri)
 # Disable GPU for tensorflow to prevent LSTM hanging on Mac
 tf_gpus = tf.config.list_physical_devices('GPU')
@@ -42,6 +44,10 @@ if tf_gpus:
  
 logger = get_logger('Model training')
  
+logger.info(f"Checking Environment Variables...")
+logger.info(f"MLFLOW_TRACKING_URI present: {bool(os.getenv('MLFLOW_TRACKING_URI'))}")
+logger.info(f"MLFLOW_TRACKING_USERNAME present: {bool(os.getenv('MLFLOW_TRACKING_USERNAME'))}")
+logger.info(f"MLFLOW_TRACKING_PASSWORD present: {bool(os.getenv('MLFLOW_TRACKING_PASSWORD'))}")
 class ModelTrainer: 
     def __init__(self, feature_engineering_artifact):
         self.feature_engineering_artifact = feature_engineering_artifact

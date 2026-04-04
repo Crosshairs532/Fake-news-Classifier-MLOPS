@@ -31,15 +31,16 @@ stages:
   model_building:
     cmd: python -m src.components.model_trainer
     deps:
+      - src/components/model_trainer.py
       - artifacts/preprocessor/feature_config.json
       - artifacts/preprocessor/train.npz
       - artifacts/preprocessor/test.npz
-      - src/components/model_trainer.py
     outs:
       - artifacts/models
       # - artifacts/reports/experiment_info.json
     metrics:
       - artifacts/reports/experiment_info.json
+
 
   model_registration:
     cmd: python -m src.components.register_model
