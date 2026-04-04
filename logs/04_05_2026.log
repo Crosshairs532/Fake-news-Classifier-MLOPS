@@ -1,0 +1,44 @@
+LINE - 56 : [ 2026-04-05 00:00:29,014 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 42 : [ 2026-04-05 00:00:29,039 ] ConfigLoader - INFO - Feature config saved — vocab_size=5000, max_len=20
+LINE - 66 : [ 2026-04-05 00:00:29,047 ] ConfigLoader - INFO - Transforming data
+LINE - 78 : [ 2026-04-05 00:00:29,052 ] ConfigLoader - INFO - Saving transformed arrays
+LINE - 82 : [ 2026-04-05 00:00:29,057 ] ConfigLoader - INFO - Feature Engineering Completed
+LINE - 56 : [ 2026-04-05 00:19:49,697 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 42 : [ 2026-04-05 00:19:49,700 ] ConfigLoader - INFO - Feature config saved — vocab_size=5000, max_len=20
+LINE - 66 : [ 2026-04-05 00:19:49,700 ] ConfigLoader - INFO - Transforming data
+LINE - 78 : [ 2026-04-05 00:19:49,701 ] ConfigLoader - INFO - Saving transformed arrays
+LINE - 82 : [ 2026-04-05 00:19:49,701 ] ConfigLoader - INFO - Feature Engineering Completed
+LINE - 103 : [ 2026-04-05 00:23:21,170 ] Model training - INFO - Model Training Started
+LINE - 104 : [ 2026-04-05 00:23:21,170 ] Model training - INFO - loading feature config..
+LINE - 29 : [ 2026-04-05 00:23:23,014 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 103 : [ 2026-04-05 00:24:23,039 ] Model training - INFO - Model Training Started
+LINE - 104 : [ 2026-04-05 00:24:23,039 ] Model training - INFO - loading feature config..
+LINE - 29 : [ 2026-04-05 00:24:24,808 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 73 : [ 2026-04-05 00:24:25,670 ] Model training - INFO - Model training started
+LINE - 12 : [ 2026-04-05 00:24:28,954 ] ConfigLoader - INFO - Saving Object
+LINE - 103 : [ 2026-04-05 00:25:46,364 ] Model training - INFO - Model Training Started
+LINE - 104 : [ 2026-04-05 00:25:46,365 ] Model training - INFO - loading feature config..
+LINE - 29 : [ 2026-04-05 00:25:48,173 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 73 : [ 2026-04-05 00:25:48,993 ] Model training - INFO - Model training started
+LINE - 12 : [ 2026-04-05 00:25:52,382 ] ConfigLoader - INFO - Saving Object
+LINE - 99 : [ 2026-04-05 00:26:14,473 ] Model training - ERROR - Error occurred while saving the model info: [Errno 2] No such file or directory: 'reports/experiment_info.json'
+LINE - 104 : [ 2026-04-05 00:28:12,049 ] Model training - INFO - Model Training Started
+LINE - 105 : [ 2026-04-05 00:28:12,050 ] Model training - INFO - loading feature config..
+LINE - 29 : [ 2026-04-05 00:28:13,879 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 73 : [ 2026-04-05 00:28:14,732 ] Model training - INFO - Model training started
+LINE - 12 : [ 2026-04-05 00:28:18,165 ] ConfigLoader - INFO - Saving Object
+LINE - 100 : [ 2026-04-05 00:28:38,746 ] Model training - ERROR - Error occurred while saving the model info: [Errno 2] No such file or directory: 'reports/experiment_info.json'
+LINE - 104 : [ 2026-04-05 00:33:33,312 ] Model training - INFO - Model Training Started
+LINE - 105 : [ 2026-04-05 00:33:33,313 ] Model training - INFO - loading feature config..
+LINE - 29 : [ 2026-04-05 00:33:34,975 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 73 : [ 2026-04-05 00:33:35,816 ] Model training - INFO - Model training started
+LINE - 12 : [ 2026-04-05 00:33:39,219 ] ConfigLoader - INFO - Saving Object
+LINE - 98 : [ 2026-04-05 00:33:57,799 ] Model training - DEBUG - Model info saved to artifacts/reports/experiment_info.json
+LINE - 143 : [ 2026-04-05 00:33:57,802 ] Model training - INFO - Model Saved
+LINE - 104 : [ 2026-04-05 00:35:16,759 ] Model training - INFO - Model Training Started
+LINE - 105 : [ 2026-04-05 00:35:16,760 ] Model training - INFO - loading feature config..
+LINE - 29 : [ 2026-04-05 00:35:19,878 ] ConfigLoader - INFO - Config loaded successfully from artifacts/preprocessor/feature_config.json
+LINE - 73 : [ 2026-04-05 00:35:20,852 ] Model training - INFO - Model training started
+LINE - 12 : [ 2026-04-05 00:35:24,054 ] ConfigLoader - INFO - Saving Object
+LINE - 98 : [ 2026-04-05 00:35:47,234 ] Model training - DEBUG - Model info saved to artifacts/reports/experiment_info.json
+LINE - 143 : [ 2026-04-05 00:35:47,237 ] Model training - INFO - Model Saved

@@ -23,8 +23,6 @@ class FakeNewsData:
             else:
                 test_collection = self.client[database_name][test_collection]
                 submit_collection = self.client[database_name][submit_collection]
-            
-
             logger.info("Fetching Data from mongoDb...")
 
             """

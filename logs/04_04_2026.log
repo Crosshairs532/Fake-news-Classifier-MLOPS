@@ -53,3 +53,33 @@ LINE - 71 : [ 2026-04-04 02:38:28,682 ] ModelEvaluation - INFO - model Evaludati
  Precision: 0.25
  Recall: 0.13333333333333333
  F1 Score: 0.17391304347826086
+LINE - 59 : [ 2026-04-04 23:46:42,691 ] Data Ingestion - INFO - Data Ingestion started
+LINE - 18 : [ 2026-04-04 23:46:42,693 ] Data Ingestion - INFO - Importing Data from mongodb
+LINE - 23 : [ 2026-04-04 23:46:42,693 ] Mongodb_connection - INFO - Connecting to Mongodb...
+LINE - 58 : [ 2026-04-04 23:46:44,002 ] Mongodb_connection - INFO - Connected to mongodb.
+LINE - 26 : [ 2026-04-04 23:46:44,002 ] Fake news Data - INFO - Fetching Data from mongoDb...
+LINE - 42 : [ 2026-04-04 23:46:46,746 ] Fake news Data - INFO - Data Fetched Successfully
+LINE - 25 : [ 2026-04-04 23:46:46,746 ] Data Ingestion - INFO - Shape of data : (5200, 7)
+LINE - 28 : [ 2026-04-04 23:46:46,747 ] Data Ingestion - INFO - Saving Raw data to feature store
+LINE - 30 : [ 2026-04-04 23:46:47,291 ] Data Ingestion - INFO - Data Saved to feature_store: artifacts/feature_store/data.csv
+LINE - 39 : [ 2026-04-04 23:46:47,292 ] Data Ingestion - INFO - Splitting data into train and test started
+LINE - 41 : [ 2026-04-04 23:46:47,296 ] Data Ingestion - INFO - Data splitting Done
+LINE - 43 : [ 2026-04-04 23:46:47,296 ] Data Ingestion - INFO - Saving Data to train and test folder
+LINE - 52 : [ 2026-04-04 23:46:47,308 ] Data Ingestion - INFO - Train and test data saved: 
+Train path: artifacts/train/train.csv
+ Test path: artifacts/test/test.csv
+LINE - 62 : [ 2026-04-04 23:46:47,308 ] Data Ingestion - INFO - Exiting Data Ingestion
+LINE - 35 : [ 2026-04-04 23:46:52,171 ] Data preprocessing - INFO - Data preprocessing Started
+LINE - 54 : [ 2026-04-04 23:46:52,295 ] Data preprocessing - INFO - Data preprocessing Finished
+LINE - 56 : [ 2026-04-04 23:46:59,857 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 42 : [ 2026-04-04 23:46:59,859 ] ConfigLoader - INFO - Feature config saved — vocab_size=5000, max_len=20
+LINE - 56 : [ 2026-04-04 23:54:19,897 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 42 : [ 2026-04-04 23:54:19,900 ] ConfigLoader - INFO - Feature config saved — vocab_size=5000, max_len=20
+LINE - 66 : [ 2026-04-04 23:54:19,900 ] ConfigLoader - INFO - Transforming data
+LINE - 78 : [ 2026-04-04 23:54:19,901 ] ConfigLoader - INFO - Saving transformed arrays
+LINE - 82 : [ 2026-04-04 23:54:19,902 ] ConfigLoader - INFO - Feature Engineering Completed
+LINE - 56 : [ 2026-04-04 23:59:17,975 ] ConfigLoader - INFO - Feature Engineering Started.
+LINE - 42 : [ 2026-04-04 23:59:17,978 ] ConfigLoader - INFO - Feature config saved — vocab_size=5000, max_len=20
+LINE - 66 : [ 2026-04-04 23:59:17,978 ] ConfigLoader - INFO - Transforming data
+LINE - 78 : [ 2026-04-04 23:59:17,979 ] ConfigLoader - INFO - Saving transformed arrays
+LINE - 82 : [ 2026-04-04 23:59:17,980 ] ConfigLoader - INFO - Feature Engineering Completed

@@ -23,7 +23,7 @@ stages:
       - artifacts/data_corpus
       - src/components/data_feature_engineering.py
     outs:
-      - artifacts/preprocessor/preprocessor.pkl
+      # - artifacts/preprocessor/preprocessor.pkl
       - artifacts/preprocessor/feature_config.json
       - artifacts/preprocessor/train.npz
       - artifacts/preprocessor/test.npz
@@ -31,7 +31,6 @@ stages:
   model_building:
     cmd: python -m src.components.model_trainer
     deps:
-      - artifacts/preprocessor/preprocessor.pkl
       - artifacts/preprocessor/feature_config.json
       - artifacts/preprocessor/train.npz
       - artifacts/preprocessor/test.npz

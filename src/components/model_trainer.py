@@ -54,7 +54,7 @@ class ModelTrainer:
         model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
         return model
  
-    def model_object(self, train_arr):
+    def model_object(self, train_arr, test_arr):
         try:
             # x_train, y_train = train_arr[:, :-1], train_arr[:, -1]
             # x_test, y_test = test_arr[:, :-1], test_arr[:, -1]
@@ -90,6 +90,7 @@ class ModelTrainer:
     
     @staticmethod
     def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
+        os.makedirs('artifacts/reports', exist_ok=True)
         try:
             model_info = {'run_id': run_id, 'model_path': model_path}
             with open(file_path, 'w') as file:
@@ -128,7 +129,7 @@ class ModelTrainer:
             save_object(model_data, save_path)
  
             mlflow.log_artifact(save_path)
-            mlflow.log_artifact("artifacts/preprocessor/preprocessor.pkl")
+            # mlflow.log_artifact("artifacts/preprocessor/preprocessor.pkl")
             mlflow.log_artifact("artifacts/preprocessor/feature_config.json")
  
             mlflow.log_metric("accuracy", self.scores["accuracy"])
@@ -137,7 +138,7 @@ class ModelTrainer:
             mlflow.log_metric("recall", self.scores["recall"])
  
             mlflow.keras.log_model(model, "FakeNewsClassifier")
-            self.save_model_info(run.info.run_id, "artifacts/models", 'reports/experiment_info.json')
+            self.save_model_info(run.info.run_id, "artifacts/models",   "artifacts/reports/experiment_info.json" )
  
             logger.info('Model Saved')
  
@@ -158,4 +159,4 @@ if __name__ == "__main__":
     test_arr = load_numpy_array_data(config.test_arr_file_path)
     
     trainer = ModelTrainer(artifact)
-    trainer.initiate_model_trainer(train_arr)
+    trainer.initiate_model_trainer(train_arr, test_arr)

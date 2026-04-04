@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/components/data_ingestion.py
       hash: md5
-      md5: fbceeaf53714def72e8d3372669f3c69
-      size: 2945
+      md5: b87951fd941e9aa2b865dac10eca53cb
+      size: 2909
     outs:
     - path: artifacts/feature_store
       hash: md5
@@ -15,26 +15,26 @@ stages:
       nfiles: 1
     - path: artifacts/test
       hash: md5
-      md5: 529ccd35ceb5361e6852f2d7ab890902.dir
-      size: 7600795
+      md5: b7ee5e24b8b6e30f065ab6660a29131c.dir
+      size: 158621
       nfiles: 1
     - path: artifacts/train
       hash: md5
-      md5: c22892b2c0cfe94f7a8d9b45f9b8e241.dir
-      size: 17837626
+      md5: 71ec3ab5a8b8656494c940d1fead1668.dir
+      size: 313047
       nfiles: 1
   data_preprocessing:
     cmd: python -m src.components.data_preprocessing
     deps:
     - path: artifacts/test
       hash: md5
-      md5: 529ccd35ceb5361e6852f2d7ab890902.dir
-      size: 7600795
+      md5: b7ee5e24b8b6e30f065ab6660a29131c.dir
+      size: 158621
       nfiles: 1
     - path: artifacts/train
       hash: md5
-      md5: c22892b2c0cfe94f7a8d9b45f9b8e241.dir
-      size: 17837626
+      md5: 71ec3ab5a8b8656494c940d1fead1668.dir
+      size: 313047
       nfiles: 1
     - path: src/components/data_preprocessing.py
       hash: md5
@@ -43,35 +43,31 @@ stages:
     outs:
     - path: artifacts/data_corpus
       hash: md5
-      md5: 959aa032a135bbcc6b2e4b5c46cefb6b.dir
-      size: 252955
+      md5: 3bbd1f8a94734d42a1a4c5b7c98e7810.dir
+      size: 4755
       nfiles: 2
   feature_engineering:
     cmd: python -m src.components.data_feature_engineering
     deps:
     - path: artifacts/data_corpus
       hash: md5
-      md5: 959aa032a135bbcc6b2e4b5c46cefb6b.dir
-      size: 252955
+      md5: 3bbd1f8a94734d42a1a4c5b7c98e7810.dir
+      size: 4755
       nfiles: 2
     - path: src/components/data_feature_engineering.py
       hash: md5
-      md5: 6d44a1206db0d58fd8c6b502b1d5e567
-      size: 4900
+      md5: ba6c3267fdd6ea4cf01c97c2bd4e39fd
+      size: 4303
     outs:
     - path: artifacts/preprocessor/feature_config.json
       hash: md5
-      md5: 1603395d721df58fb845adf7a20f7905
-      size: 44
-    - path: artifacts/preprocessor/preprocessor.pkl
-      hash: md5
-      md5: 37e22bc7d0d9528692e1b0d597c4f29c
-      size: 233813
+      md5: fd921b02e7d902155358abae3da222e6
+      size: 45
     - path: artifacts/preprocessor/test.npz
       hash: md5
-      md5: 1bbd27e5a42581711d542625bddaef4b
-      size: 98336
+      md5: cdc8285f5c4c7676db3a6d48b964194d
+      size: 5000
     - path: artifacts/preprocessor/train.npz
       hash: md5
-      md5: 17137e850c3721eb5d4d78e354a5f000
-      size: 231320
+      md5: 200bd945f35be597dffc9e59625e80d3
+      size: 9704

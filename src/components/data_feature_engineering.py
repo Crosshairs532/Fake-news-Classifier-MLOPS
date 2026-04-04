@@ -63,6 +63,8 @@ class DataFeatureEngineering:
 
             vocab_size, config_path = self.fit(train_corpus)
 
+            logger.info("Transforming data")
+
             X_train_arr = self.transform(train_corpus)
             X_test_arr = self.transform(test_corpus)
 
@@ -73,10 +75,11 @@ class DataFeatureEngineering:
             train_arr = np.c_[X_train_arr, y_train]
             test_arr = np.c_[X_test_arr, y_test]
 
-
+            logger.info("Saving transformed arrays")
             save_numpy_array_data(file_path=self.data_featureEngineering_config.train_arr_file_path, array=train_arr)
             save_numpy_array_data(file_path=self.data_featureEngineering_config.test_arr_file_path, array=test_arr)
 
+            logger.info("Feature Engineering Completed")
             preprocess_artifact = DataFeatureEngineerArtifact(
                 preprocessor_file_path=self.data_featureEngineering_config.preprocessor_file_path,
                 feature_config_file_path=self.data_featureEngineering_config.feature_config_file_path,
