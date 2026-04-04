@@ -15,7 +15,11 @@ import mlflow.keras
 import dagshub
 import json
  
-token = os.getenv("CAPSTONE_TEST") 
+dagshub_token = os.getenv("CAPSTONE_TEST") 
+if not dagshub_token:
+    raise EnvironmentError("CAPSTONE_TEST environment variable is not set")
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 # Disable GPU for tensorflow to prevent LSTM hanging on Mac
 tf_gpus = tf.config.list_physical_devices('GPU')
 if tf_gpus:
