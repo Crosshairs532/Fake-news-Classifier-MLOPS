@@ -39,11 +39,11 @@ jobs:
                     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
                     MONGODB_URI: ${{ secrets.MONGODB_URI}}
                     MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
-                    CAPSTONE_TEST: ${{ secrets.CAPSTONE_FAKE_NEWS }}
+                    CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
               run: |
                     dvc repro
             - name: Reproduce Latest Model in-to production
               env:  
-                CAPSTONE_TEST: ${{ secrets.CAPSTONE_FAKE_NEWS }}
+                CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
               run: | 
                 python scrpits/promote_model.py
