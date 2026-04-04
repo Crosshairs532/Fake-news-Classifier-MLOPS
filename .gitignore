@@ -3,3 +3,4 @@ Notebooks
 .env
 demo.py
 __pycache__
+src/pipeline/__pycache__
