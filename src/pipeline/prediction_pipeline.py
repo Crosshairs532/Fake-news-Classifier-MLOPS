@@ -10,7 +10,21 @@ from src.logger import get_logger
 from src.exception import CustomException
 from src.utils.main_utils import load_config
 
+import mlflow
+import os 
+from python_dotenv import load_dotenv
+from mlflow.tracking import MlflowClient
+
 logger = get_logger("PredictionPipeline")
+
+
+## Dagshub Setup
+dagshub_token = os.getenv("CAPSTONE_TEST")
+if not dagshub_token:
+    raise EnvironmentError("CAPSTONE_TEST environment variable is not set")
+
+mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
+dagshub.init(repo_owner='Crosshairs532', repo_name='Fake-news-Classifier-MLOPS', mlflow=True)
 
 class PredictionPipeline:
     def __init__(self):
@@ -45,6 +59,13 @@ class PredictionPipeline:
             logger.error(f"Error loading object from {file_path}")
             raise CustomException(e, sys)
 
+    def get_latest_model(model_name):
+        client = MlflowClient()
+        latest_version = client.get_latest_versions(model_name, stages=["Production"])
+        if not latest_version:
+            latest_version = client.get_latest_versions(model_name, stages=["None"])
+        return latest_version[0].version if latest_version else None
+
     def predict(self, text: str):
         try:
             logger.info("Starting prediction process")
@@ -70,14 +91,18 @@ class PredictionPipeline:
             )
 
             # Load the trained Model
-            model_data = self.load_object(self.model_path)
-            model = tf.keras.models.model_from_json(model_data["architecture"])
-            model.set_weights(model_data["weights"])
-            model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+            # model_data = self.load_object(self.model_path)
+            # model = tf.keras.models.model_from_json(model_data["architecture"])
+            # model.set_weights(model_data["weights"])
+            # model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+            model_name = "FakeNewsClassifier"
+            model = self.get_latest_model(model_name)
+            model_uri = f'models:/{model_name}/{model.model_version}'
+            model = mlflow.pyfunc.load_model(model_uri)
 
             # predict
             prediction = model.predict(padded)
-
 
             is_fake = (prediction[0][0] > 0.5).astype(dtype='int8')
             

@@ -5,10 +5,15 @@ from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 import uvicorn
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
-
 from src.pipeline.train_pipeline import TrainPipeline
 from src.pipeline.prediction_pipeline import PredictionPipeline
 from src.logger import get_logger
+
+
+
+load_dotenv()
+
+
 
 logger = get_logger("App")
 
@@ -32,6 +37,9 @@ PREDICTION_RESULTS = Counter(
     "Count of classifications", 
     ["type"]
 )
+
+
+
 
 class NewsRequest(BaseModel):
     text: str
