@@ -7,7 +7,7 @@ logger = get_logger('Register model')
 
 load_dotenv()
 def register_model(model_name: str, model_info: dict):
-    mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
+    mlflow.set_tracking_uri("https://dagshub.com/Crosshairs532/Fake-news-Classifier-MLOPS.mlflow")
     os.environ['MLFLOW_TRACKING_USERNAME'] = "Crosshairs532" 
     os.environ['MLFLOW_TRACKING_PASSWORD'] = os.getenv('CAPSTONE_TEST') 
     try:
