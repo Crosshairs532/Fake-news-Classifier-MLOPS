@@ -8,5 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 EXPOSE 8000
+RUN python -m nltk.downloader stopwords wordnet
 
 CMD ["uvicorn", "app:app", "--host", "[IP_ADDRESS]", "--port", "8000", "--reload"]
