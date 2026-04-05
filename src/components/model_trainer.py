@@ -120,6 +120,11 @@ class ModelTrainer:
     def initiate_model_trainer(self, train_arr, test_arr):
         logger.info("Model Training Started")
         logger.info('loading feature config..')
+
+
+        logger.info(f"TRACKING URI: {mlflow.get_tracking_uri()}")
+        logger.info(f"USERNAME VALUE: {os.getenv('MLFLOW_TRACKING_USERNAME')}")
+        logger.info(f"PASSWORD first 6: {str(os.getenv('MLFLOW_TRACKING_PASSWORD'))[:6]}")
  
         mlflow.set_experiment('Fake-News-Classifier-MLOPS')
  
