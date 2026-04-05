@@ -158,7 +158,7 @@ class ModelTrainer:
             mlflow.log_metric("recall", self.scores["recall"])
  
             mlflow.keras.log_model(model, "FakeNewsClassifier")
-            self.save_model_info(run.info.run_id, "artifacts/models",   "artifacts/reports/experiment_info.json" )
+            self.save_model_info(run.info.run_id, "artifacts/models",   "reports/experiment_info.json" )
  
             logger.info('Model Saved')
  
