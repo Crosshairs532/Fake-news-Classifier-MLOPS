@@ -1,3 +1,4 @@
+import dagshub
 from src.exception import CustomException
 from src.logger import get_logger
 from dotenv import load_dotenv
@@ -15,11 +16,12 @@ import json
 import pickle
 
 load_dotenv()
+
 logger = get_logger("ModelEvaluation")
 dagshub_token = os.getenv("CAPSTONE_TEST")
-ml_flow_tracking_url = "https://dagshub.com/Crosshairs532/Fake-news-Classifier-MLOPS.mlflow/"
-mlflow.set_tracking_uri(ml_flow_tracking_url)
-dagshub.init(repo_owner='Crosshairs532', repo_name='Fake-news-Classifier-MLOPS', mlflow=True)
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+mlflow.set_tracking_uri("https://dagshub.com/Crosshairs532/Fake-news-Classifier-MLOPS.mlflow")
 
 class ModelEvaluation: 
     def __init__(self):

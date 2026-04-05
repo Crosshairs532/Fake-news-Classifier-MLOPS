@@ -9,7 +9,7 @@ import tensorflow as tf
 from src.logger import get_logger
 from src.exception import CustomException
 from src.utils.main_utils import load_config
-
+import dagshub
 import mlflow
 import os 
 from dotenv import load_dotenv
