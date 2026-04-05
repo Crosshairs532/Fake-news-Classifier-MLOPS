@@ -12,7 +12,7 @@ def register_model(model_name: str, model_info: dict):
     os.environ['MLFLOW_TRACKING_PASSWORD'] = os.getenv('CAPSTONE_TEST') 
     try:
         # model_uri = f"runs:/{model_info['run_id']}/{model_info['model_path']}"
-        model_uri = f"runs:/{model_info['run_id']}/{model_name}"
+        model_uri = f"runs:/{model_info['run_id']}/model"
     
         model_version = mlflow.register_model(model_uri, model_name)
         
