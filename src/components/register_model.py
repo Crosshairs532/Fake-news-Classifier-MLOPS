@@ -1,12 +1,13 @@
 from mlflow.tracking import MlflowClient
 import mlflow
 from src.logger import get_logger
+from dotenv import load_dotenv
 
 logger = get_logger('Register model')
 
-
+load_dotenv()
 def register_model(model_name: str, model_info: dict):
-
+    mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
     try:
         # model_uri = f"runs:/{model_info['run_id']}/{model_info['model_path']}"
         model_uri = f"runs:/{model_info['run_id']}/{model_name}"
