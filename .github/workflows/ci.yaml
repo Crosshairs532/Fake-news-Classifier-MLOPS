@@ -37,7 +37,6 @@ jobs:
                     DB_NAME: ${{ secrets.DB_NAME }}
                     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
                     MONGODB_URI: ${{ secrets.MONGODB_URI}}
-                    MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
                     CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
                     MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
                     MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}

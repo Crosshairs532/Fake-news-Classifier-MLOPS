@@ -14,3 +14,5 @@ docker==7.1.0
 dagshub==0.6.3
 boto3==1.40.73
 python-dotenv
+prometheus-client
+python-multipart

@@ -10,4 +10,4 @@ COPY . /app
 EXPOSE 8000
 RUN python -m nltk.downloader stopwords wordnet
 
-CMD ["uvicorn", "app:app", "--host", "[IP_ADDRESS]", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
