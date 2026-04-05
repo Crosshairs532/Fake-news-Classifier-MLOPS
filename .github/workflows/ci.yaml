@@ -38,8 +38,8 @@ jobs:
                     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
                     MONGODB_URI: ${{ secrets.MONGODB_URI}}
                     CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
-                    MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
-                    MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
+                    MLFLOW_TRACKING_USERNAME: ${{secrets.CAPSTONE_TEST }}
+                    MLFLOW_TRACKING_PASSWORD: ${{ secrets.CAPSTONE_TEST }}
               run: |
                     dvc repro
             - name: Reproduce Latest Model in-to production
