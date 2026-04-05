@@ -105,7 +105,7 @@ class ModelTrainer:
     
     @staticmethod
     def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
-        os.makedirs('artifacts/reports', exist_ok=True)
+        os.makedirs('reports', exist_ok=True)
         try:
             model_info = {'run_id': run_id, 'model_path': model_path}
             with open(file_path, 'w') as file:

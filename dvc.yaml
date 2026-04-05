@@ -39,7 +39,7 @@ stages:
       - artifacts/models
       # - artifacts/reports/experiment_info.json
     metrics:
-      - artifacts/reports/experiment_info.json
+      - reports/experiment_info.json
 
 
   model_registration:
