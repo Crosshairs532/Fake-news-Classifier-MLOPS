@@ -71,3 +71,32 @@ stages:
       hash: md5
       md5: 200bd945f35be597dffc9e59625e80d3
       size: 9704
+  model_building:
+    cmd: python -m src.components.model_trainer
+    deps:
+    - path: artifacts/preprocessor/feature_config.json
+      hash: md5
+      md5: fd921b02e7d902155358abae3da222e6
+      size: 45
+    - path: artifacts/preprocessor/test.npz
+      hash: md5
+      md5: cdc8285f5c4c7676db3a6d48b964194d
+      size: 5000
+    - path: artifacts/preprocessor/train.npz
+      hash: md5
+      md5: 200bd945f35be597dffc9e59625e80d3
+      size: 9704
+    - path: src/components/model_trainer.py
+      hash: md5
+      md5: 34f1ecac12f602b6a839a3b110e2e8b4
+      size: 7016
+    outs:
+    - path: artifacts/models
+      hash: md5
+      md5: 553522f08066b011d42ac71698d086ad.dir
+      size: 1030733
+      nfiles: 1
+    - path: reports/experiment_info.json
+      hash: md5
+      md5: 9da3104ceb60831cfa8cec5776861d75
+      size: 90
