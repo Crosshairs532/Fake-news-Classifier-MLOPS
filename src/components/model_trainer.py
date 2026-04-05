@@ -124,7 +124,7 @@ class ModelTrainer:
         logger.info(f"USERNAME VALUE: {os.getenv('MLFLOW_TRACKING_USERNAME')}")
         logger.info(f"PASSWORD first 6: {str(os.getenv('MLFLOW_TRACKING_PASSWORD'))[:6]}")
  
-        mlflow.set_experiment('Fake-News-Classifier-MLOPS')
+        mlflow.set_experiment('Fake-News-Classifier-MLOPS-v1')
  
         with mlflow.start_run() as run: 
             feature_config = load_config('artifacts/preprocessor/feature_config.json')

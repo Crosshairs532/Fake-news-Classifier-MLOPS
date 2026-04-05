@@ -69,6 +69,7 @@ class ModelEvaluation:
                 mlflow.log_metric("precision", precision)
                 mlflow.log_metric("recall", recall)
                 mlflow.log_metric("f1_score", f1)
+                mlflow.keras.log_model(model, artifact_path="model")
 
                 logger.info(f"model Evaludation Completed\n Accuracy: {acc}\n Precision: {precision}\n Recall: {recall}\n F1 Score: {f1}")
 

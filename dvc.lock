@@ -65,11 +65,11 @@ stages:
       size: 45
     - path: artifacts/preprocessor/test.npz
       hash: md5
-      md5: cdc8285f5c4c7676db3a6d48b964194d
+      md5: 5879fa0db9a7751532622f5a895a2a02
       size: 5000
     - path: artifacts/preprocessor/train.npz
       hash: md5
-      md5: 200bd945f35be597dffc9e59625e80d3
+      md5: c6030bf39b522e5cd7de1287727a288f
       size: 9704
   model_building:
     cmd: python -m src.components.model_trainer
