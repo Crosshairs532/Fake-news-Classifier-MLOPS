@@ -2,7 +2,7 @@ from mlflow.tracking import MlflowClient
 import mlflow
 from src.logger import get_logger
 from dotenv import load_dotenv
-
+import os 
 logger = get_logger('Register model')
 
 load_dotenv()
