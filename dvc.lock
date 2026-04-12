@@ -80,23 +80,44 @@ stages:
       size: 45
     - path: artifacts/preprocessor/test.npz
       hash: md5
-      md5: cdc8285f5c4c7676db3a6d48b964194d
+      md5: 5879fa0db9a7751532622f5a895a2a02
       size: 5000
     - path: artifacts/preprocessor/train.npz
       hash: md5
-      md5: 200bd945f35be597dffc9e59625e80d3
+      md5: c6030bf39b522e5cd7de1287727a288f
       size: 9704
     - path: src/components/model_trainer.py
       hash: md5
-      md5: 34f1ecac12f602b6a839a3b110e2e8b4
-      size: 7016
+      md5: cca0511c3cd7bda63111281a79ad7419
+      size: 5515
     outs:
     - path: artifacts/models
       hash: md5
-      md5: 553522f08066b011d42ac71698d086ad.dir
+      md5: edf30b80e11005be2c2a74a1a06cc903.dir
       size: 1030733
       nfiles: 1
+  model_evaluation:
+    cmd: python -m src.components.model_evaluation
+    deps:
+    - path: artifacts/models
+      hash: md5
+      md5: edf30b80e11005be2c2a74a1a06cc903.dir
+      size: 1030733
+      nfiles: 1
+    - path: artifacts/preprocessor/feature_config.json
+      hash: md5
+      md5: fd921b02e7d902155358abae3da222e6
+      size: 45
+    - path: artifacts/preprocessor/test.npz
+      hash: md5
+      md5: 5879fa0db9a7751532622f5a895a2a02
+      size: 5000
+    - path: src/components/model_evaluation.py
+      hash: md5
+      md5: 9a870e1846100558e2814df307eb4196
+      size: 3836
+    outs:
     - path: reports/experiment_info.json
       hash: md5
-      md5: 9da3104ceb60831cfa8cec5776861d75
-      size: 90
+      md5: dc528e57bab8bd244b55b583c8a652fb
+      size: 92

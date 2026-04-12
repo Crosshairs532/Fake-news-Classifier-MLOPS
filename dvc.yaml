@@ -38,9 +38,17 @@ stages:
     outs:
       - artifacts/models
       # - artifacts/reports/experiment_info.json
-    metrics:
-      - reports/experiment_info.json
 
+  model_evaluation:
+    cmd: python -m src.components.model_evaluation
+    deps:
+      - src/components/model_evaluation.py
+      - artifacts/models
+      - artifacts/preprocessor/test.npz
+      - artifacts/preprocessor/feature_config.json
+    metrics:
+      - reports/experiment_info.json:
+          cache: false
 
   model_registration:
     cmd: python -m src.components.register_model

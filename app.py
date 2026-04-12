@@ -14,7 +14,6 @@ from src.logger import get_logger
 load_dotenv()
 
 
-
 logger = get_logger("App")
 
 app = FastAPI(title="Fake News Classifier API")
@@ -37,13 +36,8 @@ PREDICTION_RESULTS = Counter(
     "Count of classifications", 
     ["type"]
 )
-
-
-
-
 class NewsRequest(BaseModel):
     text: str
-
 @app.middleware("http")
 async def monitor_requests(request: Request, call_next):
     start_time = time.time()
